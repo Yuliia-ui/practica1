@@ -1,20 +1,19 @@
-//const shouldRenew = confirm('Хотите подписаться?');
-//console.log(shouldRenew);
+let credits = 23580;
+const pricePerDroid = 3000;
+const input = prompt('Сколько дроидов вы хотели бы купить?');
+let totalPrice;
 
-//let userInput = prompt('Введите число 5');
-//userInput = Number(userInput);
-//console.log(typeof userInput);
-
-//const value = 'cat';
-//const number = Number(value);
-//console.log(number);
-
-//const blockWidth = '300.25px';
-//const width = Number.parseFloat(blockWidth);
-//console.log(width);
-
-//let number = prompt('Введите число');
-//number = Number(number);
-
-const result = Math.round(1.9);
-console.log(result);
+if (input === null) {
+  console.log('Отменено пользователем');
+} else {
+  totalPrice = Number(input) * pricePerDroid;
+  console.log(totalPrice);
+  if (totalPrice > credits) {
+    console.log('Недостаточно средств на счету!');
+  } else {
+    credits -= totalPrice;
+    console.log(
+      `Вы купили ${input} дроидов, на счету осталось ${credits} кредитов`,
+    );
+  }
+}
